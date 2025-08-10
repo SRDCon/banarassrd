@@ -1,0 +1,82 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><meta name='description' content='R&D consultancy for NGOs and social organisations in India.'><title>Contact - Consultancy Services</title><link rel='stylesheet' href='style.css'></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header" role="banner" aria-label="Top navigation">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">CS</div>
+    <div>
+      <h1 style="font-size:15px;margin:0">Consultancy Services</h1>
+      <div style="font-size:11px;color:var(--muted)">Dr. Pradip Srivastava</div>
+    </div>
+  </div>
+  <nav style="display:flex;align-items:center;gap:12px" role="navigation" aria-label="Main">
+    <div class="navlinks" role="menubar" aria-label="Primary">
+      <a class="nav-link" href="index.html" role="menuitem">Home</a>
+      <a class="nav-link" href="thematic-areas.html" role="menuitem">Thematic Areas</a>
+      <a class="nav-link" href="research.html" role="menuitem">Research</a>
+      <a class="nav-link" href="training-policy.html" role="menuitem">Training & Policy</a>
+      <a class="nav-link" href="charges.html" role="menuitem">Charges</a>
+      <a class="nav-link" href="contact.html" role="menuitem">Contact</a>
+    </div>
+    <button id="theme-btn" aria-pressed="false" aria-label="Toggle color theme" style="background:none;border:2px solid var(--accent);color:var(--accent);padding:8px 10px;border-radius:8px;font-weight:700">Toggle</button>
+    <button id="hamb" class="hamburger" aria-label="Open menu">☰</button>
+  </nav>
+</header>
+<div id="mobile-menu" class="mobile-menu" style="display:none;flex-direction:column" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="thematic-areas.html">Thematic Areas</a>
+  <a href="research.html">Research</a>
+  <a href="training-policy.html">Training & Policy</a>
+  <a href="charges.html">Charges</a>
+  <a href="contact.html">Contact</a>
+</div>
+<main id='main' class='container' role='main'>
+<section class='section' aria-labelledby='contactinfo'>
+  <h2 id='contactinfo'><span class='icon' aria-hidden='true'>📧</span>Contact Information</h2>
+  <p><strong>Dr. Pradip Srivastava</strong></p>
+  <p>Mob: <a href='tel:+919369349057'>+91-9369349057</a>, <a href='tel:+919919331728'>+91-9919331728</a></p>
+  <p>Email: <a href='mailto:banarassrd.consultany@gmail.com'>banarassrd.consultany@gmail.com</a></p>
+</section>
+<section class='section' aria-labelledby='sendmsg'>
+  <h2 id='sendmsg'><span class='icon' aria-hidden='true'>✉️</span>Send a Message</h2>
+  <p>Form is configured to use Formspree. To activate, create a free form at <a href='https://formspree.io/' target='_blank' rel='noopener'>Formspree</a> and replace the <code>action</code> URL below with your form endpoint.</p>
+  <form action='https://formspree.io/f/your-form-id' method='POST' aria-label='Contact form'>
+    <label for='name'>Name</label>
+    <input id='name' name='name' type='text' required aria-required='true' />
+    <label for='email'>Email</label>
+    <input id='email' name='_replyto' type='email' required aria-required='true' />
+    <label for='message'>Message</label>
+    <textarea id='message' name='message' required aria-required='true'></textarea>
+    <button class='primary' type='submit'>Send Message</button>
+  </form>
+</section>
+</main><footer class='footer'>© 2025 Consultancy Services — Dr. Pradip Srivastava</footer><script src='main.js'></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector("form");
+  const status = document.createElement("div");
+  status.style.marginTop = "1em";
+  form.parentNode.appendChild(status);
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    status.textContent = "Sending...";
+    const data = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        status.textContent = "✅ Your message has been sent successfully!";
+        form.reset();
+      } else {
+        status.textContent = "❌ Oops! There was a problem sending your message.";
+      }
+    } catch (error) {
+      status.textContent = "❌ Network error. Please try again.";
+    }
+  });
+});
+</script>
+</body></html>
